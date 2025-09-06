@@ -2,7 +2,7 @@
 
 An interactive, AI-powered resume assistant designed to help recruiters explore Cesar Reyes' qualifications through natural conversation.
 
-![Demo](https://img.shields.io/badge/Demo-Live-success) ![HTML](https://img.shields.io/badge/HTML-5-orange) ![CSS](https://img.shields.io/badge/CSS-3-blue) ![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+🌐 **Live Demo**: [https://reyecesa1.github.io/Resume-Assistant-Chatbot/](https://reyecesa1.github.io/Resume-Assistant-Chatbot/)
 
 ## Overview
 
