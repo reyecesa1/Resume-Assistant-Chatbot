@@ -1,3 +1,4 @@
+<img width="1286" height="429" alt="chatbot png" src="https://github.com/user-attachments/assets/6c0e8149-1471-4a14-ba25-e889efb3215a" />
 # Cesar's Recruiter Assistant
 
 An interactive, AI-powered resume assistant designed to help recruiters explore Cesar Reyes' qualifications through natural conversation.
