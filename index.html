@@ -113,7 +113,7 @@
             background: #fbfdff;
             font-size: 14px;
         }
-        
+ 
         .recruiter-section {
             background: #f0f9ff;
             border-radius: 10px;
@@ -389,7 +389,7 @@
 <body>
     <div class="header">
         <h1>Cesar's Recruiter Assistant</h1>
-        <p>Interactive demo with guided conversation</p>
+        <p>AI Training & Quality Assurance Specialist | LLM Evaluation | Prompt Engineering | AI Operations</p>
     </div>
     
     <div class="container">
@@ -398,16 +398,16 @@
                 <div class="avatar">CR</div>
                 <div class="profile-info">
                     <h2>Cesar Reyes</h2>
-                    <p>AI Data Quality Strategist</p>
+                    <p>AI Training & Quality Assurance Specialist</p>
                 </div>
             </div>
             
             <div class="recruiter-section">
                 <h3>💡 Not sure where to start?</h3>
                 <p style="font-size: 12px; margin-bottom: 10px; color: var(--dark);">Try these questions:</p>
-                <div class="suggestion-chip" onclick="askSuggestion('Tell me about your AI experience')">Tell me about your AI experience</div>
-                <div class="suggestion-chip" onclick="askSuggestion('What are your technical skills?')">What are your technical skills?</div>
-                <div class="suggestion-chip" onclick="askSuggestion('How does your marketing background help with AI?')">Marketing + AI combination</div>
+                <div class="suggestion-chip" onclick="askSuggestion('Tell me about your AI training experience')">AI Training Experience</div>
+                <div class="suggestion-chip" onclick="askSuggestion('What are your technical skills?')">Technical Skills</div>
+                <div class="suggestion-chip" onclick="askSuggestion('How does your marketing background help with AI?')">Marketing + AI Combination</div>
             </div>
             
             <div class="search-box">
@@ -418,7 +418,7 @@
                 <div class="tag active" data-category="all">All</div>
                 <div class="tag" data-category="experience">Experience</div>
                 <div class="tag" data-category="skills">Skills</div>
-                <div class="tag" data-category="education">Education</div>
+                <div class="tag" data-category="projects">Projects</div>
             </div>
             
             <div class="questions-list" id="questions-list">
@@ -439,7 +439,7 @@
             
             <div class="chat-messages" id="chat-messages">
                 <div class="message bot">
-                    <div>Hello! I am Cesar's resume assistant, ready to answer your questions! You can ask me about my experience, skills, education or anything else!</div>
+                    <div>Hello! I'm Cesar's resume assistant, ready to answer your questions about my AI training expertise, technical skills, projects, and more! Ask me anything about my professional background.</div>
                     <div class="message-meta">
                         <span>Assistant</span>
                         <span>Just now</span>
@@ -469,92 +469,90 @@
     </div>
     
     <div class="footer">
-        <p>This demo features guided conversation with word suggestions and random facts.</p>
+        <p>Interactive portfolio chatbot that demonstrates technical capability while serving as a functional recruiting tool. Custom NLP Algorithms, keyword matching with progressive disclosure</p>
     </div>
 
     <script>
         // Enhanced keyword to category mapping
         const keywordCategories = {
-            experience: ["experience", "work", "job", "role", "position", "career", "background", "outlier", "refica", "properties", "aqua-tots", "employment", "professional"],
-            skills: ["skill", "technical", "python", "tableau", "ai", "artificial intelligence", "llm", "language model", "crm", "salesforce", "hubspot", "jellyfish", "latex", "json", "wolfram", "analytics", "google analytics", "excel", "tool", "framework", "technology"],
-            education: ["education", "degree", "university", "college", "graduate", "certification", "certificate", "course", "training", "learn", "study", "shsu", "sam houston", "pennsylvania", "ibm", "yale", "michigan", "salesforce", "microsoft"],
-            projects: ["project", "askbot", "chatbot", "jsj", "electric", "reintegration", "baker hughes", "field days", "music tutor", "initiative", "volunteer"],
-            achievements: ["achievement", "accomplishment", "success", "result", "impact", "improve", "increase", "reduce", "award", "recognize", "rating", "error rate", "accuracy", "performance"],
-            personal: ["strength", "weakness", "goals", "ambition", "aspiration", "personality", "fit", "culture", "value", "motivation", "passion", "interest"]
+            experience: ["experience", "work", "job", "role", "position", "career", "background", "outlier", "refica", "properties", "swiftsite", "employment", "professional", "quality", "assurance", "reviewer", "contributor", "training", "evaluation"],
+            skills: ["skill", "technical", "python", "sql", "ai", "artificial intelligence", "llm", "language model", "prompt engineering", "rubric", "evaluation", "html", "css", "javascript", "gsap", "canvas", "batch", "json", "latex", "wolfram", "ollama", "claude", "deepseek", "tableau", "airtable", "airflow", "zapier", "github", "huggingface", "vercel", "tool", "framework", "technology"],
+            projects: ["project", "chatbot", "portfolio", "game", "development", "html5", "canvas", "animation", "swiftsite", "artisan gems", "e-commerce", "neo", "patch", "console", "ai environment", "local ai", "interactive", "demonstration"],
+            education: ["education", "degree", "university", "college", "graduate", "certification", "certificate", "course", "training", "learn", "study", "shsu", "sam houston", "pennsylvania", "ibm", "salesforce", "microsoft"]
         };
 
-        // Sample questions and answers with enhanced keyword coverage
+        // Updated questions and answers based on the comprehensive audit and resume
         const questions = [
             {
                 id: 1,
-                text: "Walk me through your resume.",
+                text: "Walk me through your professional background.",
                 category: "experience",
-                answer: "I started with a BBA in Marketing and gained early experience in client-facing roles like Swim Instructor, building adaptability and service skills. I concurrently developed my technical foundation through certifications in AI, Python, and data analysis. I applied this by co-founding an AI chatbot project and then transitioned into a professional AI role at Outlier AI, where I train models and improve data quality. I also manage real estate properties, applying digital marketing and operational skills. I am now seeking to leverage this blend of marketing, AI, and analytics in a full-time role.",
-                keywords: ["experience", "background", "career", "history", "overview", "summary"]
+                answer: "I'm an AI Training Specialist with a BBA in Marketing, currently working at Outlier AI where I've progressed from contributor to trusted reviewer across multiple specialized AI training projects. I've worked on 7+ different projects focusing on text and audio AI training, with team sizes ranging from 275 to 20,500 contributors. I also co-founded SwiftSite, a web development agency, and have experience in property management and marketing consulting. My career demonstrates a deliberate transition from traditional marketing to AI specialization.",
+                keywords: ["experience", "background", "career", "history", "overview", "summary", "professional"]
             },
             {
                 id: 2,
-                text: "What motivated your transition from Marketing to AI operations?",
+                text: "What does your AI Training Specialist role involve?",
                 category: "experience",
-                answer: "I recognized that AI and data are powerful tools for driving marketing strategy and business decisions. I proactively built my skills through certifications from IBM and the University of Pennsylvania to understand AI fundamentals, strategy, and applications. My hands-on work co-founding AskBot.Chat confirmed my interest, leading me to pursue a professional role where I can apply both my marketing perspective and technical AI skills.",
-                keywords: ["transition", "change", "motivation", "why", "move", "switch", "marketing", "ai"]
+                answer: "As an AI Training & Quality Assurance Specialist at Outlier AI, I design complex prompts and multi-dimensional rubrics to test AI model performance on hierarchical instructions, mathematical reasoning, and natural conversation. I've developed advanced prompt engineering methodologies for testing AI model compliance with instruction hierarchies and created weighted evaluation systems that became project standards. I lead quality assurance for large teams, mentor junior contributors, and specialize in both text and audio AI training. My work has directly contributed to model improvements in areas like mathematical reasoning accuracy and hierarchical command understanding.",
+                keywords: ["ai training", "quality assurance", "outlier", "role", "responsibilities", "duties", "prompt engineering", "evaluation"]
             },
             {
                 id: 3,
-                text: "Tell me about your experience at Outlier AI.",
-                category: "experience",
-                answer: "At Outlier AI, I work as an AI Data Quality Strategist where I provide structured AI training that improved contributor performance and reinforced output quality. I've completed 180+ projects involving prompt engineering and evaluation tasks, with a 4.2/5 rating across 135 peer-reviewed tasks. I've collaborated with multi-functional teams to optimize training data and reduce project error rates by 20%. Through structured quality control and data normalization, I improved model output accuracy by 18% and reduced error rates by 22%.",
-                keywords: ["outlier", "ai", "current", "job", "work", "role", "position", "data quality", "strategist"]
+                text: "What are your technical skills and proficiencies?",
+                category: "skills",
+                answer: "I have comprehensive technical skills including: AI/ML (Prompt Engineering, AI Model Evaluation, LLM Fine-Tuning, Rubric Development, Instruction Hierarchy Testing); Programming (Python, SQL, Windows Batch, JSON, LaTeX); Web Development (HTML5/CSS3/JavaScript, GSAP, Canvas API); AI Tools (Ollama, Claude, Deepseek, Wolfram Alpha, Jellyfish); Platforms (GitHub, Huggingface, Vercel, Snowflake, Airtable, Airflow, Zapier); and Methodologies (MECE Principles, Quality Assurance Systems, Remote Team Collaboration). I'm also fluent in English and Spanish with working proficiency in Italian.",
+                keywords: ["technical", "skills", "tools", "python", "ai", "programming", "web development", "html", "css", "javascript", "gsap", "canvas", "ollama", "claude", "deepseek", "languages"]
             },
             {
                 id: 4,
-                text: "What technical skills do you bring to a role?",
+                text: "Tell me about your AI training methodology.",
                 category: "skills",
-                answer: "I bring a strong combination of marketing knowledge and technical skills including Python for data analysis, AI model training and evaluation, CRM systems (Salesforce, HubSpot), and digital marketing analytics (Google Analytics). I'm skilled in leveraging large language models (LLMs), Tableau for data visualization, and various AI tools like Jellyfish, Claude, and Wolfram Alpha. This technical foundation allows me to develop data-informed strategies and optimize performance.",
-                keywords: ["technical", "skills", "tools", "python", "ai", "tableau", "crm", "salesforce", "hubspot", "jellyfish", "claude", "wolfram", "analytics", "language model", "llm"]
+                answer: "My AI training methodology involves: 1) Advanced prompt engineering with hierarchical instruction sets (Core Model Instructions → Model Customization → User Prompts); 2) Developing MECE (Mutually Exclusive, Collectively Exhaustive) evaluation criteria with weighted scoring systems; 3) Testing model behavior across tension scenarios (no tension, tension with exception, direct tension); 4) Implementing quality metrics with weighted scoring (Mandatory: 10, Valuable: 5, Negative: -5/-10); 5) Atomic criteria development with binary, self-contained evaluation metrics; and 6) Multi-dimensional evaluation across speech formatting, style, tone, and language compliance for audio AI training.",
+                keywords: ["methodology", "training", "evaluation", "prompt engineering", "rubric", "mECE", "quality", "metrics", "atomic criteria"]
             },
             {
                 id: 5,
-                text: "How do you measure success in your projects?",
-                category: "achievements",
-                answer: "I measure success through quantifiable metrics such as model output accuracy improvements (achieved 18% increase), error rate reduction (achieved 22% decrease), peer review scores (maintained 4.2/5 average), and project completion rates (180+ projects completed). I also consider the impact on overall team performance and the scalability of the solutions implemented.",
-                keywords: ["measure", "success", "metric", "kpi", "result", "impact", "improvement", "accuracy", "error rate", "performance"]
+                text: "What projects have you developed personally?",
+                category: "projects",
+                answer: "I've developed several technical projects including: 1) Personal AI Development Environment (NEO) - A sophisticated AI console using Windows batch scripting and Ollama framework to orchestrate multiple LLMs with persistent memory and context-aware model routing; 2) Interactive AI Portfolio Chatbot - A framework-independent chatbot with weighted keyword algorithm to dynamically present relevant experience; 3) HTML5 Game Development - Interactive time-based games using Canvas API with custom physics engines and procedural animation; 4) SwiftSite - A web development agency startup building enterprise-grade websites; 5) Artisan Gems - An e-commerce platform with Python pricing calculators; and 6) PATCH Console - A minimalist local AI environment built around TinyLlama.",
+                keywords: ["projects", "development", "chatbot", "game", "html5", "canvas", "ai console", "neo", "patch", "swiftsite", "artisan gems", "e-commerce"]
             },
             {
                 id: 6,
-                text: "What certifications have you completed?",
-                category: "education",
-                answer: "I've completed several relevant certifications including: Python for Data Science, AI & Development from IBM; AI Applications in People Management, AI Strategy and Governance, and AI in Marketing & Finance from the University of Pennsylvania; Sales & CRM Overview from Salesforce; Data for Business Analyst Using Excel from Microsoft; Successful Negotiation from the University of Michigan; and Financial Markets from Yale University.",
-                keywords: ["certification", "certificate", "course", "training", "ibm", "pennsylvania", "salesforce", "microsoft", "michigan", "yale", "learn", "study"]
+                text: "What are your key accomplishments?",
+                category: "experience",
+                answer: "My key accomplishments include: 1) Maintaining a 4.2/5 average rating across 135+ peer-reviewed AI training tasks with 70% of reviews rated 4-5 stars; 2) Being selected for premium, higher-compensation projects based on demonstrated expertise; 3) Receiving formal commendation for exceptional contributions; 4) Progressing to reviewer roles across 4 different projects; 5) Developing evaluation methods that became project standards; 6) Contributing to model improvement in mathematical reasoning accuracy and hierarchical command understanding; 7) Increasing B2C lead generation by 8% through targeted digital marketing strategies; and 8) Successfully launching and scaling a web development agency startup.",
+                keywords: ["accomplishments", "achievements", "success", "results", "impact", "rating", "commendation", "recognition", "improvement"]
             },
             {
                 id: 7,
-                text: "Tell me about your property management experience.",
+                text: "How does your marketing background complement your AI work?",
                 category: "experience",
-                answer: "At Refica Properties LLC, I manage end-to-end rental operations across several real-estate properties, including tenant screening, builder coordination, and timely rent collection. I oversee digital marketing updates and vendor cost control to ensure operational efficiency. I also coordinate with contractors and service providers to oversee property maintenance, repairs, and procurement of services while optimizing costs.",
-                keywords: ["property", "management", "real estate", "refica", "rental", "tenant", "vendor", "coordinate", "maintenance"]
+                answer: "My marketing background provides a unique advantage in AI work by enabling me to bridge technical AI capabilities with business objectives. I understand how to translate business needs into technical requirements and can effectively communicate AI capabilities to stakeholders. This hybrid expertise allows me to develop AI solutions that are not just technically sound but also business-relevant and user-centered. My experience in digital marketing, lead generation, and customer engagement informs my approach to AI training, ensuring models are developed with practical applications and user experience in mind.",
+                keywords: ["marketing", "business", "combination", "hybrid", "complement", "background", "translate", "business objectives"]
             },
             {
                 id: 8,
-                text: "What are your strengths?",
-                category: "personal",
-                answer: "My key strengths include: 1) Analytical thinking and problem-solving abilities demonstrated through my AI work, 2) Adaptability and learning agility shown by my successful transition from marketing to AI, 3) Cross-functional collaboration skills evidenced by my work with multi-disciplinary teams, and 4) Technical proficiency in AI, data analysis, and digital marketing tools.",
-                keywords: ["strength", "strong", "good at", "best at", "ability", "skill", "talent", "asset"]
+                text: "What is your educational background?",
+                category: "education",
+                answer: "I hold a Bachelor of Business Administration in Marketing from Sam Houston State University. Additionally, I've completed several relevant certifications including: Python for Data Science, AI & Development from IBM; AI Applications in People Management, AI Strategy and Governance, and AI in Marketing & Finance from the University of Pennsylvania. These certifications have provided me with both technical AI skills and strategic understanding of AI implementation in business contexts.",
+                keywords: ["education", "degree", "university", "college", "certification", "certificate", "shsu", "sam houston", "ibm", "pennsylvania", "python", "ai"]
             }
         ];
 
-        // Random facts about Cesar
+        // Updated random facts about Cesar
         const randomFacts = [
-            "Cesar improved AI model output accuracy by 18% at Outlier AI",
-            "He reduced error rates by 22% through structured quality control",
-            "Cesar is bilingual in English and Spanish with working proficiency in Italian",
-            "He completed 180+ projects involving prompt engineering and evaluation tasks",
-            "Cesar has a BBA in Marketing from Sam Houston State University",
-            "He increased B2C lead generation by 8% for JSJ Electric through targeted marketing",
-            "Cesar received a 4.2/5 rating across 135 peer-reviewed tasks at Outlier AI",
-            "He managed to reengage 60+ students with a 30% participation increase at SHSU",
-            "Cesar is skilled in Python, Tableau, Salesforce, HubSpot, and various AI tools",
-            "He has certifications from IBM, University of Pennsylvania, and Salesforce"
+            "Cesar maintained a 4.2/5 average rating across 135+ peer-reviewed AI training tasks",
+            "He was selected for premium, higher-compensation projects based on demonstrated expertise",
+            "Cesar developed evaluation methods that became project standards at Outlier AI",
+            "He is bilingual in English and Spanish with working proficiency in Italian",
+            "Cesar has worked on 7+ different specialized AI training projects",
+            "He led quality assurance for teams ranging from 275 to 20,500 contributors",
+            "Cesar increased B2C lead generation by 8% through targeted marketing strategies",
+            "He created a personal AI development environment with persistent memory and context-aware model routing",
+            "Cesar is skilled in Python, SQL, AI model training, and web development technologies",
+            "He has certifications from IBM, University of Pennsylvania, and other institutions"
         ];
 
         // DOM elements
@@ -594,9 +592,9 @@
         // Render word suggestions
         function renderWordSuggestions() {
             const suggestionWords = [
-                "Experience", "Skills", "Education", "AI", "Python", 
-                "Tableau", "Certifications", "Projects", "Outlier AI",
-                "Marketing", "Results", "Strengths"
+                "AI Training", "Prompt Engineering", "Quality Assurance", "Python", 
+                "Technical Skills", "Projects", "Certifications", "Education",
+                "Marketing", "Web Development", "Reviewer Role", "Methodology"
             ];
             
             wordSuggestions.innerHTML = '';
@@ -764,7 +762,7 @@
             
             // Default response for no match
             return {
-                answer: "I'm not sure how to answer that based on my resume. Could you try asking about my experience, skills, education, or projects? You can also select one of the questions on the left."
+                answer: "I'm not sure how to answer that based on my resume. Could you try asking about my AI training experience, technical skills, projects, or education? You can also select one of the questions on the left."
             };
         }
         
@@ -772,25 +770,19 @@
         function getCategoryResponse(category, input) {
             switch(category) {
                 case "experience":
-                    return "I have diverse professional experience including my current role as an AI Data Quality Strategist at Outlier AI, property management at Refica Properties, and earlier roles like Swim Instructor at Aqua-Tots. I've successfully transitioned from marketing to AI, demonstrating adaptability and learning agility. Would you like to know about a specific role or experience?";
+                    return "I have extensive experience as an AI Training & Quality Assurance Specialist at Outlier AI, where I've progressed from contributor to trusted reviewer across multiple specialized projects. I've also co-founded SwiftSite, a web development agency, and have experience in property management and marketing consulting. My career demonstrates a transition from marketing to AI specialization. Would you like to know about a specific role or experience?";
                 
                 case "skills":
-                    return "My skills include Python programming, AI model training and evaluation, data analysis with Tableau, CRM systems (Salesforce, HubSpot), digital marketing analytics, and prompt engineering for large language models. I'm also proficient with tools like Jellyfish, LaTeX, JSON, and Wolfram Alpha. Is there a specific skill you'd like to know more about?";
-                
-                case "education":
-                    return "I hold a BBA in Marketing from Sam Houston State University and have completed several certifications including Python for Data Science from IBM, multiple AI certifications from the University of Pennsylvania, Sales & CRM from Salesforce, and business analysis from Microsoft. Would you like details about any specific certification?";
+                    return "My technical skills include Python, SQL, AI model training and evaluation, prompt engineering, rubric development, HTML5/CSS3/JavaScript, GSAP animations, Canvas API for game development, and various AI tools like Ollama, Claude, and Deepseek. I'm also proficient in quality assurance methodologies and remote team collaboration. Is there a specific skill you'd like to know more about?";
                 
                 case "projects":
-                    return "I've worked on various projects including co-founding AskBot.Chat (an AI chatbot webpage), volunteer marketing consulting for JSJ Electric, leading post-COVID student reintegration at SHSU, and participating in Baker Hughes Field Days. I also work as a private music tutor. Which project would you like to hear more about?";
+                    return "I've developed several technical projects including a Personal AI Development Environment (NEO) with Windows batch scripting and Ollama, an Interactive AI Portfolio Chatbot, HTML5 Canvas games with custom physics engines, SwiftSite web development agency, and Artisan Gems e-commerce platform with Python integration. Which project would you like to hear more about?";
                 
-                case "achievements":
-                    return "Some of my key achievements include improving AI model output accuracy by 18%, reducing error rates by 22%, increasing B2C lead generation by 8% for JSJ Electric, and reengaging 60+ students with a 30% participation increase. I've also received recognition for excellence in adaptability and customer service. Would you like details on any specific achievement?";
-                
-                case "personal":
-                    return "I'm a results-driven professional with strong analytical thinking, adaptability, and communication skills. I'm bilingual in English and Spanish with working proficiency in Italian. I enjoy tackling complex problems and thrive in collaborative, cross-functional environments. Is there a specific aspect of my work style or personality you'd like to know about?";
+                case "education":
+                    return "I hold a BBA in Marketing from Sam Houston State University and have completed certifications in Python for Data Science from IBM, and multiple AI certifications from the University of Pennsylvania covering AI strategy, governance, and applications in marketing and finance. Would you like details about any specific certification?";
                 
                 default:
-                    return "I'd be happy to tell you more about my background. Could you please specify if you're interested in my experience, skills, education, projects, or something else?";
+                    return "I'd be happy to tell you more about my background. Could you please specify if you're interested in my AI training experience, technical skills, projects, education, or something else?";
             }
         }
 
@@ -846,7 +838,7 @@
         // Clear chat
         function clearChat() {
             chatMessages.innerHTML = '';
-            addMessage("Hello! I am Cesar's resume assistant, ready to answer your questions! You can ask me about my experience, skills, education or anything else!");
+            addMessage("Hello! I'm Cesar's resume assistant, ready to answer your questions about my AI training expertise, technical skills, projects, and more! Ask me anything about my professional background.");
         }
 
         // Event listeners
