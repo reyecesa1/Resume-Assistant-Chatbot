@@ -62,7 +62,6 @@
             opacity: 0.9;
         }
         
-        /* Left Panel */
         .left-panel {
             background: linear-gradient(180deg, var(--white), #fbfbff);
             padding: 20px;
@@ -201,7 +200,6 @@
             color: var(--gray);
         }
         
-        /* Right Panel */
         .right-panel {
             display: flex;
             flex-direction: column;
@@ -379,7 +377,6 @@
             .container {
                 grid-template-columns: 1fr;
             }
-            
             .left-panel {
                 display: none;
             }
@@ -389,7 +386,7 @@
 <body>
     <div class="header">
         <h1>Cesar's Recruiter Assistant</h1>
-        <p>AI Training & Quality Assurance Specialist | LLM Evaluation | Prompt Engineering | AI Operations</p>
+        <p>AI Operations & QA | Core Ops at a leading tech company | Prompt Engineering</p>
     </div>
     
     <div class="container">
@@ -398,16 +395,16 @@
                 <div class="avatar">CR</div>
                 <div class="profile-info">
                     <h2>Cesar Reyes</h2>
-                    <p>AI Training & Quality Assurance Specialist</p>
+                    <p>AI Operations & QA Specialist</p>
                 </div>
             </div>
             
             <div class="recruiter-section">
                 <h3>💡 Not sure where to start?</h3>
                 <p style="font-size: 12px; margin-bottom: 10px; color: var(--dark);">Try these questions:</p>
-                <div class="suggestion-chip" onclick="askSuggestion('Tell me about your AI training experience')">AI Training Experience</div>
-                <div class="suggestion-chip" onclick="askSuggestion('What are your technical skills?')">Technical Skills</div>
-                <div class="suggestion-chip" onclick="askSuggestion('How does your marketing background help with AI?')">Marketing + AI Combination</div>
+                <div class="suggestion-chip" onclick="askSuggestion('Tell me about your current role')">Current Role</div>
+                <div class="suggestion-chip" onclick="askSuggestion('What AI projects have you built?')">AI Projects</div>
+                <div class="suggestion-chip" onclick="askSuggestion('How does your marketing background help with AI?')">Marketing + AI</div>
             </div>
             
             <div class="search-box">
@@ -419,18 +416,17 @@
                 <div class="tag" data-category="experience">Experience</div>
                 <div class="tag" data-category="skills">Skills</div>
                 <div class="tag" data-category="projects">Projects</div>
+                <div class="tag" data-category="education">Education</div>
             </div>
             
-            <div class="questions-list" id="questions-list">
-                <!-- Questions will be dynamically added here -->
-            </div>
+            <div class="questions-list" id="questions-list"></div>
         </div>
         
         <div class="right-panel">
             <div class="chat-header">
                 <div>
-                    <div class="chat-title">Resume Assistant (Lite)</div>
-                    <div class="chat-subtitle">Ask me about my experience and skills</div>
+                    <div class="chat-title">Resume Assistant</div>
+                    <div class="chat-subtitle">Ask me about experience, skills, projects</div>
                 </div>
                 <div class="chat-actions">
                     <button class="action-btn" id="clear-chat">Clear Chat</button>
@@ -439,7 +435,7 @@
             
             <div class="chat-messages" id="chat-messages">
                 <div class="message bot">
-                    <div>Hello! I'm Cesar's resume assistant, ready to answer your questions about my AI training expertise, technical skills, projects, and more! Ask me anything about my professional background.</div>
+                    <div>Hello! I'm Cesar's AI assistant. Ask me about his current work in core operations at a major tech company, his AI training background, technical skills, or any of his projects like NEO AI, PATCH AI, Cold2Close, SwiftSite, and more!</div>
                     <div class="message-meta">
                         <span>Assistant</span>
                         <span>Just now</span>
@@ -447,14 +443,11 @@
                 </div>
             </div>
             
-            <div class="word-suggestions" id="word-suggestions">
-                <!-- Word suggestions will be dynamically added here -->
-            </div>
+            <div class="word-suggestions" id="word-suggestions"></div>
             
             <div class="chat-input-container">
                 <input type="text" id="user-input" placeholder="Ask a question..." class="chat-input">
                 <button class="random-btn" id="random-btn" title="Random Fact">
-                    <!-- Dice icon SVG -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                         <path d="M16 8h.01"></path>
@@ -469,90 +462,102 @@
     </div>
     
     <div class="footer">
-        <p>Interactive portfolio chatbot that demonstrates technical capability while serving as a functional recruiting tool. Custom NLP Algorithms, keyword matching, with progressive disclosure.</p>
+        <p>Updated 2026 – Interactive portfolio chatbot. Now low‑key about current employer, focusing on skills and projects.</p>
     </div>
 
     <script>
-        // Enhanced keyword to category mapping
+        // Keyword categories – no explicit "meta" or "facebook"
         const keywordCategories = {
-            experience: ["experience", "work", "job", "role", "position", "career", "background", "outlier", "refica", "properties", "swiftsite", "employment", "professional", "quality", "assurance", "reviewer", "contributor", "training", "evaluation"],
-            skills: ["skill", "technical", "python", "sql", "ai", "artificial intelligence", "llm", "language model", "prompt engineering", "rubric", "evaluation", "html", "css", "javascript", "gsap", "canvas", "batch", "json", "latex", "wolfram", "ollama", "claude", "deepseek", "tableau", "airtable", "airflow", "zapier", "github", "huggingface", "vercel", "tool", "framework", "technology"],
-            projects: ["project", "chatbot", "portfolio", "game", "development", "html5", "canvas", "animation", "swiftsite", "artisan gems", "e-commerce", "neo", "patch", "console", "ai environment", "local ai", "interactive", "demonstration"],
-            education: ["education", "degree", "university", "college", "graduate", "certification", "certificate", "course", "training", "learn", "study", "shsu", "sam houston", "pennsylvania", "ibm", "salesforce", "microsoft"]
+            experience: ["current role", "core ops", "large tech company", "leading tech firm", "outlier", "swiftsite", "properties", "refica", "experience", "work", "job", "role", "position", "career", "background", "professional", "quality assurance", "reviewer", "contributor", "training", "evaluation"],
+            skills: ["python", "sql", "javascript", "html", "css", "gsap", "canvas", "ollama", "claude", "deepseek", "wolfram", "batch", "json", "latex", "tableau", "airtable", "airflow", "zapier", "github", "huggingface", "vercel", "prompt engineering", "rubric development", "ai evaluation", "llm", "fine-tuning", "mece"],
+            projects: ["neo ai", "patch ai", "cold2close", "swiftsite", "artisan gems", "black widow inks", "nati nails", "the little hiker", "the little astronaut", "touch grass", "nerdspace", "ai console", "e-commerce", "chatbot", "portfolio", "game dev", "canvas animation"],
+            education: ["shsu", "sam houston state", "bba marketing", "ibm", "pennsylvania", "certification", "python for data science", "ai strategy", "ai governance", "ai in marketing", "ai in finance"]
         };
 
-        // Updated questions and answers based on the comprehensive audit and resume
         const questions = [
             {
                 id: 1,
-                text: "Walk me through your professional background.",
+                text: "What is your current role?",
                 category: "experience",
-                answer: "I'm an AI Training Specialist with a BBA in Marketing, currently working at Outlier AI where I've progressed from contributor to trusted reviewer across multiple specialized AI training projects. I've worked on 7+ different projects focusing on text and audio AI training, with team sizes ranging from 275 to 20,500 contributors. I also co-founded SwiftSite, a web development agency, and have experience in property management and marketing consulting. My career demonstrates a deliberate transition from traditional marketing to AI specialization.",
-                keywords: ["experience", "background", "career", "history", "overview", "summary", "professional"]
+                answer: "Since early 2026, I've been working in core operations and production support at a leading global technology company. I apply my AI training and QA background to help optimize operational workflows and maintain high performance standards across production systems. I prefer to keep the company name low‑key, but it's a well‑known tech firm.",
+                keywords: ["current", "role", "now", "recent", "job", "position", "work"]
             },
             {
                 id: 2,
-                text: "What does your AI Training Specialist role involve?",
+                text: "Walk me through your professional background.",
                 category: "experience",
-                answer: "As an AI Training & Quality Assurance Specialist at Outlier AI, I design complex prompts and multi-dimensional rubrics to test AI model performance on hierarchical instructions, mathematical reasoning, and natural conversation. I've developed advanced prompt engineering methodologies for testing AI model compliance with instruction hierarchies and created weighted evaluation systems that became project standards. I lead quality assurance for large teams, mentor junior contributors, and specialize in both text and audio AI training. My work has directly contributed to model improvements in areas like mathematical reasoning accuracy and hierarchical command understanding.",
-                keywords: ["ai training", "quality assurance", "outlier", "role", "responsibilities", "duties", "prompt engineering", "evaluation"]
+                answer: "I started as an AI Training & QA Specialist at Outlier AI, where I progressed from contributor to trusted reviewer across 7+ projects. In early 2026, I moved into a core operations role at a major tech company (keeping it low‑key). I also co‑founded SwiftSite (a web agency), have experience in property management and marketing consulting, and built over a dozen personal projects including AI consoles, games, and e‑commerce sites. My path blends marketing, AI, and operations.",
+                keywords: ["background", "career", "history", "overview", "professional", "summary"]
             },
             {
                 id: 3,
-                text: "What are your technical skills and proficiencies?",
-                category: "skills",
-                answer: "I have comprehensive technical skills including: AI/ML (Prompt Engineering, AI Model Evaluation, LLM Fine-Tuning, Rubric Development, Instruction Hierarchy Testing); Programming (Python, SQL, Windows Batch, JSON, LaTeX); Web Development (HTML5/CSS3/JavaScript, GSAP, Canvas API); AI Tools (Ollama, Claude, Deepseek, Wolfram Alpha, Jellyfish); Platforms (GitHub, Huggingface, Vercel, Snowflake, Airtable, Airflow, Zapier); and Methodologies (MECE Principles, Quality Assurance Systems, Remote Team Collaboration). I'm also fluent in English and Spanish with working proficiency in Italian.",
-                keywords: ["technical", "skills", "tools", "python", "ai", "programming", "web development", "html", "css", "javascript", "gsap", "canvas", "ollama", "claude", "deepseek", "languages"]
+                text: "What did you do at Outlier AI?",
+                category: "experience",
+                answer: "At Outlier AI, I served as an AI Training & Quality Assurance Specialist. I designed complex prompts and multi‑dimensional rubrics to test AI model performance on hierarchical instructions, mathematical reasoning, and natural conversation. I maintained a 4.2/5 average across 135+ peer‑reviewed tasks, developed evaluation methods that became project standards, and led QA for teams ranging from 275 to 20,500 contributors. I worked on both text and audio AI training.",
+                keywords: ["outlier", "ai training", "quality assurance", "reviewer", "rubric", "prompt engineering", "evaluation"]
             },
             {
                 id: 4,
-                text: "Tell me about your AI training methodology.",
+                text: "What are your technical skills?",
                 category: "skills",
-                answer: "My AI training methodology involves: 1) Advanced prompt engineering with hierarchical instruction sets (Core Model Instructions → Model Customization → User Prompts); 2) Developing MECE (Mutually Exclusive, Collectively Exhaustive) evaluation criteria with weighted scoring systems; 3) Testing model behavior across tension scenarios (no tension, tension with exception, direct tension); 4) Implementing quality metrics with weighted scoring (Mandatory: 10, Valuable: 5, Negative: -5/-10); 5) Atomic criteria development with binary, self-contained evaluation metrics; and 6) Multi-dimensional evaluation across speech formatting, style, tone, and language compliance for audio AI training.",
-                keywords: ["methodology", "training", "evaluation", "prompt engineering", "rubric", "mECE", "quality", "metrics", "atomic criteria"]
+                answer: "I'm proficient in: AI/LLM (Prompt Engineering, Model Evaluation, Rubric Development, Fine‑Tuning, MECE principles); Programming (Python, SQL, Windows Batch, JSON, LaTeX); Web Development (HTML5/CSS3/JavaScript, GSAP, Canvas API); AI Tools (Ollama, Claude, Deepseek, Wolfram Alpha); Platforms (GitHub, Huggingface, Vercel, Snowflake, Airtable, Airflow, Zapier); and Data (Tableau, Airtable). I'm also bilingual (English/Spanish) with working Italian.",
+                keywords: ["technical skills", "python", "sql", "javascript", "llm", "prompt engineering", "web dev", "gsap", "canvas", "ollama", "claude", "deepseek", "tools", "languages"]
             },
             {
                 id: 5,
-                text: "What projects have you developed personally?",
+                text: "What AI projects have you built?",
                 category: "projects",
-                answer: "I've developed several technical projects including: 1) Personal AI Development Environment (NEO) - A sophisticated AI console using Windows batch scripting and Ollama framework to orchestrate multiple LLMs with persistent memory and context-aware model routing; 2) Interactive AI Portfolio Chatbot - A framework-independent chatbot with weighted keyword algorithm to dynamically present relevant experience; 3) HTML5 Game Development - Interactive time-based games using Canvas API with custom physics engines and procedural animation; 4) SwiftSite - A web development agency startup building enterprise-grade websites; 5) Artisan Gems - An e-commerce platform with Python pricing calculators; and 6) PATCH Console - A minimalist local AI environment built around TinyLlama.",
-                keywords: ["projects", "development", "chatbot", "game", "html5", "canvas", "ai console", "neo", "patch", "swiftsite", "artisan gems", "e-commerce"]
+                answer: "I've built several AI projects: <strong>NEO AI</strong> – a dual‑brain AI console with persistent memory and context‑aware routing (Ollama + Deepseek). <strong>PATCH AI</strong> – a lightweight offline AI companion (TinyLlama). <strong>Cold2Close</strong> – an AI‑powered cold calling B2B service. <strong>Resume Assistant Chatbot</strong> – the interactive bot you're using now. All are live on Vercel and GitHub.",
+                keywords: ["ai projects", "neo", "patch", "cold2close", "chatbot", "ai console", "built", "created", "developed"]
             },
             {
                 id: 6,
-                text: "What are your key accomplishments?",
-                category: "experience",
-                answer: "My key accomplishments include: 1) Maintaining a 4.2/5 average rating across 135+ peer-reviewed AI training tasks with 70% of reviews rated 4-5 stars; 2) Being selected for premium, higher-compensation projects based on demonstrated expertise; 3) Receiving formal commendation for exceptional contributions; 4) Progressing to reviewer roles across 4 different projects; 5) Developing evaluation methods that became project standards; 6) Contributing to model improvement in mathematical reasoning accuracy and hierarchical command understanding; 7) Increasing B2C lead generation by 8% through targeted digital marketing strategies; and 8) Successfully launching and scaling a web development agency startup.",
-                keywords: ["accomplishments", "achievements", "success", "results", "impact", "rating", "commendation", "recognition", "improvement"]
+                text: "What ventures and business projects do you have?",
+                category: "projects",
+                answer: "I founded <strong>SwiftSite</strong> – a web development agency in Houston (8+ projects, 99% satisfaction). I also built sites for real businesses: <strong>Nati Nails</strong> (mobile salon booking), <strong>Artisan Gems</strong> (jewelry e‑commerce with Python calculator), and <strong>Black Widow Inks</strong> (tattoo portfolio). All are live and showcase my full‑stack abilities.",
+                keywords: ["ventures", "business", "swiftsite", "nati nails", "artisan gems", "black widow inks", "agency", "startup", "e-commerce"]
             },
             {
                 id: 7,
-                text: "How does your marketing background complement your AI work?",
-                category: "experience",
-                answer: "My marketing background provides a unique advantage in AI work by enabling me to bridge technical AI capabilities with business objectives. I understand how to translate business needs into technical requirements and can effectively communicate AI capabilities to stakeholders. This hybrid expertise allows me to develop AI solutions that are not just technically sound but also business-relevant and user-centered. My experience in digital marketing, lead generation, and customer engagement informs my approach to AI training, ensuring models are developed with practical applications and user experience in mind.",
-                keywords: ["marketing", "business", "combination", "hybrid", "complement", "background", "translate", "business objectives"]
+                text: "Do you have any game development projects?",
+                category: "projects",
+                answer: "Yes! I've built <strong>The Little Hiker</strong> (Tamagotchi‑style adventure), <strong>The Little Astronaut</strong> (space exploration), and <strong>Touch Grass</strong> (outdoor interactive experience). They use HTML5 Canvas, custom physics, and procedural animation – great examples of my front‑end creativity.",
+                keywords: ["games", "game dev", "the little hiker", "the little astronaut", "touch grass", "canvas", "html5 game"]
             },
             {
                 id: 8,
                 text: "What is your educational background?",
                 category: "education",
-                answer: "I hold a Bachelor of Business Administration in Marketing from Sam Houston State University. Additionally, I've completed several relevant certifications including: Python for Data Science, AI & Development from IBM; AI Applications in People Management, AI Strategy and Governance, and AI in Marketing & Finance from the University of Pennsylvania. These certifications have provided me with both technical AI skills and strategic understanding of AI implementation in business contexts.",
-                keywords: ["education", "degree", "university", "college", "certification", "certificate", "shsu", "sam houston", "ibm", "pennsylvania", "python", "ai"]
+                answer: "I hold a BBA in Marketing from Sam Houston State University (graduated Aug 2024). I've also earned certifications: <strong>Python for Data Science, AI & Development</strong> (IBM), and multiple AI certifications from the University of Pennsylvania (AI Strategy, Governance, AI in Marketing & Finance).",
+                keywords: ["education", "degree", "shsu", "sam houston", "bba", "marketing", "certification", "ibm", "pennsylvania"]
+            },
+            {
+                id: 9,
+                text: "How does your marketing background help with AI?",
+                category: "experience",
+                answer: "Marketing gave me a user‑centered, outcome‑driven mindset. I translate business needs into technical requirements, design AI evaluations that matter for real users, and communicate complex AI concepts to non‑technical stakeholders. It makes me a hybrid: technically capable yet business‑aware.",
+                keywords: ["marketing", "business", "hybrid", "translate", "communication", "stakeholders"]
+            },
+            {
+                id: 10,
+                text: "What are your key achievements?",
+                category: "experience",
+                answer: "Achievements include: 4.2/5 avg rating across 135+ AI training tasks; selected for premium projects; formal commendation; evaluation methods adopted as project standards; increased B2C lead generation by 8% via marketing; launched SwiftSite; built 10+ live projects; and now working in core operations at a top tech company – a clear growth trajectory.",
+                keywords: ["achievements", "accomplishments", "results", "impact", "rating", "commendation", "lead generation"]
             }
         ];
 
-        // Updated random facts about Cesar
         const randomFacts = [
-            "Cesar maintained a 4.2/5 average rating across 135+ peer-reviewed AI training tasks",
-            "He was selected for premium, higher-compensation projects based on demonstrated expertise",
-            "Cesar developed evaluation methods that became project standards at Outlier AI",
-            "He is bilingual in English and Spanish with working proficiency in Italian",
-            "Cesar has worked on 7+ different specialized AI training projects",
-            "He led quality assurance for teams ranging from 275 to 20,500 contributors",
-            "Cesar increased B2C lead generation by 8% through targeted marketing strategies",
-            "He created a personal AI development environment with persistent memory and context-aware model routing",
-            "Cesar is skilled in Python, SQL, AI model training, and web development technologies",
-            "He has certifications from IBM, University of Pennsylvania, and other institutions"
+            "Cesar currently works in core operations at a leading tech company (keeping it low‑key).",
+            "He built NEO AI – a dual‑brain AI console with persistent memory and context routing.",
+            "His AI evaluation methods at Outlier became project standards.",
+            "He maintains a 4.2/5 average across 135+ AI training tasks.",
+            "Cesar speaks English, Spanish, and working Italian.",
+            "He founded SwiftSite, a web agency with 99% client satisfaction.",
+            "His game 'The Little Hiker' is a Tamagotchi‑style adventure.",
+            "He has certifications from IBM and University of Pennsylvania in AI.",
+            "Cold2Close is his B2B AI cold calling service.",
+            "He graduated from Sam Houston State University with a BBA in Marketing."
         ];
 
         // DOM elements
@@ -566,10 +571,8 @@
         const wordSuggestions = document.getElementById('word-suggestions');
         const randomBtn = document.getElementById('random-btn');
 
-        // Initialize the questions list
         function renderQuestions(filteredQuestions = questions) {
             questionsList.innerHTML = '';
-            
             filteredQuestions.forEach(q => {
                 const questionItem = document.createElement('div');
                 questionItem.className = 'question-item';
@@ -580,280 +583,158 @@
                         <span>Click to ask</span>
                     </div>
                 `;
-                
-                questionItem.addEventListener('click', () => {
-                    askQuestion(q);
-                });
-                
+                questionItem.addEventListener('click', () => askQuestion(q));
                 questionsList.appendChild(questionItem);
             });
         }
 
-        // Render word suggestions
         function renderWordSuggestions() {
             const suggestionWords = [
-                "AI Training", "Prompt Engineering", "Quality Assurance", "Python", 
-                "Technical Skills", "Projects", "Certifications", "Education",
-                "Marketing", "Web Development", "Reviewer Role", "Methodology"
+                "Current Role", "Outlier AI", "NEO AI", "PATCH AI", "Cold2Close",
+                "Python Skills", "Game Dev", "SwiftSite", "Education", "Marketing + AI"
             ];
-            
             wordSuggestions.innerHTML = '';
-            
             suggestionWords.forEach(word => {
                 const wordElement = document.createElement('div');
                 wordElement.className = 'word-suggestion';
                 wordElement.textContent = word;
-                wordElement.addEventListener('click', () => {
-                    askAboutWord(word);
-                });
+                wordElement.addEventListener('click', () => askAboutWord(word));
                 wordSuggestions.appendChild(wordElement);
             });
         }
 
-        // Add message to chat
         function addMessage(text, isUser = false) {
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
-            
             const now = new Date();
             const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            
-            messageDiv.innerHTML = `
-                <div>${text}</div>
-                <div class="message-meta">
-                    <span>${isUser ? 'You' : 'Assistant'}</span>
-                    <span>${timeString}</span>
-                </div>
-            `;
-            
+            messageDiv.innerHTML = `<div>${text}</div><div class="message-meta"><span>${isUser ? 'You' : 'Assistant'}</span><span>${timeString}</span></div>`;
             chatMessages.appendChild(messageDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
-        // Show typing indicator
         function showTypingIndicator() {
             const typingDiv = document.createElement('div');
             typingDiv.className = 'message bot';
             typingDiv.id = 'typing-indicator';
-            
-            typingDiv.innerHTML = `
-                <div class="typing-animation">
-                    <div class="typing-dot"></div>
-                    <div class="typing-dot"></div>
-                    <div class="typing-dot"></div>
-                </div>
-                <div class="message-meta">
-                    <span>Assistant</span>
-                    <span>Typing...</span>
-                </div>
-            `;
-            
+            typingDiv.innerHTML = `<div class="typing-animation"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div><div class="message-meta"><span>Assistant</span><span>Typing...</span></div>`;
             chatMessages.appendChild(typingDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
-            
             return typingDiv;
         }
 
-        // Remove typing indicator
         function removeTypingIndicator() {
-            const typingIndicator = document.getElementById('typing-indicator');
-            if (typingIndicator) {
-                typingIndicator.remove();
-            }
+            const indicator = document.getElementById('typing-indicator');
+            if (indicator) indicator.remove();
         }
 
-        // Ask a question
         function askQuestion(question) {
             addMessage(question.text, true);
-            
-            const typingIndicator = showTypingIndicator();
-            
-            // Simulate delay for response
+            const typing = showTypingIndicator();
             setTimeout(() => {
                 removeTypingIndicator();
                 addMessage(question.answer);
-            }, 1000);
+            }, 800);
         }
-        
-        // Ask about a specific word
+
         function askAboutWord(word) {
-            const question = `Tell me about ${word.toLowerCase()}`;
-            addMessage(question, true);
-            
-            const typingIndicator = showTypingIndicator();
-            
-            // Find the best matching response
+            const questionText = `Tell me about ${word.toLowerCase()}`;
+            addMessage(questionText, true);
+            const typing = showTypingIndicator();
             setTimeout(() => {
                 removeTypingIndicator();
-                
-                const match = findBestMatch(question);
+                const match = findBestMatch(questionText);
                 addMessage(match.answer);
-            }, 1500);
+            }, 800);
         }
-        
-        // Handle suggestion chips
+
         function askSuggestion(text) {
             userInput.value = text;
             handleUserInput();
         }
 
-        // Enhanced keyword matching function
-        function findBestMatch(userInput) {
-            const input = userInput.toLowerCase();
+        function findBestMatch(input) {
+            const lowerInput = input.toLowerCase();
             let bestMatch = null;
             let highestScore = 0;
-            
-            // First, try direct keyword matching
             questions.forEach(q => {
                 let score = 0;
-                
-                // Check against question keywords
                 if (q.keywords) {
-                    q.keywords.forEach(keyword => {
-                        if (input.includes(keyword)) {
-                            score += 2; // Higher weight for direct keywords
-                        }
+                    q.keywords.forEach(kw => {
+                        if (lowerInput.includes(kw)) score += 2;
                     });
                 }
-                
-                // Check against question text
-                if (input.includes(q.text.toLowerCase().substring(0, 15))) {
-                    score += 5; // Even higher weight for direct question match
-                }
-                
-                // Check category keywords
-                for (const [category, keywords] of Object.entries(keywordCategories)) {
-                    if (q.category === category) {
-                        keywords.forEach(keyword => {
-                            if (input.includes(keyword)) {
-                                score += 1; // Lower weight for category keywords
-                            }
+                if (lowerInput.includes(q.text.toLowerCase().slice(0, 15))) score += 5;
+                for (const [cat, kwList] of Object.entries(keywordCategories)) {
+                    if (q.category === cat) {
+                        kwList.forEach(kw => {
+                            if (lowerInput.includes(kw)) score += 1;
                         });
                     }
                 }
-                
                 if (score > highestScore) {
                     highestScore = score;
                     bestMatch = q;
                 }
             });
-            
-            // If we have a good match, return it
-            if (highestScore >= 2) {
-                return bestMatch;
+            if (highestScore >= 2) return bestMatch;
+            let detectedCat = null;
+            for (const [cat, kwList] of Object.entries(keywordCategories)) {
+                if (kwList.some(kw => lowerInput.includes(kw))) detectedCat = cat;
             }
-            
-            // If no good match found, try to determine category and provide generic response
-            let detectedCategory = null;
-            for (const [category, keywords] of Object.entries(keywordCategories)) {
-                keywords.forEach(keyword => {
-                    if (input.includes(keyword)) {
-                        detectedCategory = category;
-                    }
-                });
-            }
-            
-            // Provide category-based response if detected
-            if (detectedCategory) {
-                return {
-                    answer: getCategoryResponse(detectedCategory, input)
+            if (detectedCat) {
+                const generic = {
+                    experience: "My experience spans core operations at a major tech company (low‑key), prior AI training at Outlier, SwiftSite, and marketing. Want details on any specific role?",
+                    skills: "My technical skills include Python, SQL, AI evaluation, prompt engineering, web dev (GSAP/Canvas), and tools like Ollama, Claude, and Airtable.",
+                    projects: "I have many projects: NEO AI, PATCH AI, Cold2Close, SwiftSite, games (Little Hiker, Touch Grass), and e‑commerce sites.",
+                    education: "I hold a BBA in Marketing from SHSU and AI certifications from IBM and UPenn."
                 };
+                return { answer: generic[detectedCat] || "I can tell you about my current role (low‑key), AI projects, skills, or education. What would you like?" };
             }
-            
-            // Default response for no match
-            return {
-                answer: "I'm not sure how to answer that based on my resume. Could you try asking about my AI training experience, technical skills, projects, or education? You can also select one of the questions on the left."
-            };
-        }
-        
-        // Get response for a category when no specific question is matched
-        function getCategoryResponse(category, input) {
-            switch(category) {
-                case "experience":
-                    return "I have extensive experience as an AI Training & Quality Assurance Specialist at Outlier AI, where I've progressed from contributor to trusted reviewer across multiple specialized projects. I've also co-founded SwiftSite, a web development agency, and have experience in property management and marketing consulting. My career demonstrates a transition from marketing to AI specialization. Would you like to know about a specific role or experience?";
-                
-                case "skills":
-                    return "My technical skills include Python, SQL, AI model training and evaluation, prompt engineering, rubric development, HTML5/CSS3/JavaScript, GSAP animations, Canvas API for game development, and various AI tools like Ollama, Claude, and Deepseek. I'm also proficient in quality assurance methodologies and remote team collaboration. Is there a specific skill you'd like to know more about?";
-                
-                case "projects":
-                    return "I've developed several technical projects including a Personal AI Development Environment (NEO) with Windows batch scripting and Ollama, an Interactive AI Portfolio Chatbot, HTML5 Canvas games with custom physics engines, SwiftSite web development agency, and Artisan Gems e-commerce platform with Python integration. Which project would you like to hear more about?";
-                
-                case "education":
-                    return "I hold a BBA in Marketing from Sam Houston State University and have completed certifications in Python for Data Science from IBM, and multiple AI certifications from the University of Pennsylvania covering AI strategy, governance, and applications in marketing and finance. Would you like details about any specific certification?";
-                
-                default:
-                    return "I'd be happy to tell you more about my background. Could you please specify if you're interested in my AI training experience, technical skills, projects, education, or something else?";
-            }
+            return { answer: "I'm not sure. Try asking about my current role, AI projects like NEO, or my technical skills." };
         }
 
-        // Get a random fact
         function getRandomFact() {
-            const randomIndex = Math.floor(Math.random() * randomFacts.length);
-            return randomFacts[randomIndex];
+            return randomFacts[Math.floor(Math.random() * randomFacts.length)];
         }
 
-        // Handle user input
         function handleUserInput() {
             const text = userInput.value.trim();
             if (!text) return;
-            
             addMessage(text, true);
             userInput.value = '';
-            
-            const typingIndicator = showTypingIndicator();
-            
-            // Find the best matching response
+            const typing = showTypingIndicator();
             setTimeout(() => {
                 removeTypingIndicator();
-                
                 const match = findBestMatch(text);
                 addMessage(match.answer);
-            }, 1500);
+            }, 800);
         }
 
-        // Filter questions by search
         function filterQuestions() {
             const searchText = searchInput.value.toLowerCase();
             const activeCategory = document.querySelector('.tag.active').dataset.category;
-            
-            let filteredQuestions = questions;
-            
-            // Filter by category
-            if (activeCategory !== 'all') {
-                filteredQuestions = filteredQuestions.filter(q => q.category === activeCategory);
-            }
-            
-            // Filter by search text
+            let filtered = questions;
+            if (activeCategory !== 'all') filtered = filtered.filter(q => q.category === activeCategory);
             if (searchText) {
-                filteredQuestions = filteredQuestions.filter(q => 
+                filtered = filtered.filter(q => 
                     q.text.toLowerCase().includes(searchText) ||
                     q.answer.toLowerCase().includes(searchText) ||
-                    (q.keywords && q.keywords.some(kw => kw.toLowerCase().includes(searchText)))
+                    (q.keywords && q.keywords.some(k => k.includes(searchText)))
                 );
             }
-            
-            renderQuestions(filteredQuestions);
+            renderQuestions(filtered);
         }
 
-        // Clear chat
         function clearChat() {
             chatMessages.innerHTML = '';
-            addMessage("Hello! I'm Cesar's resume assistant, ready to answer your questions about my AI training expertise, technical skills, projects, and more! Ask me anything about my professional background.");
+            addMessage("Hello! I'm Cesar's assistant (2026). Ask about my current role (low‑key), AI projects, skills, education, or any venture – I'm ready!");
         }
 
-        // Event listeners
         sendBtn.addEventListener('click', handleUserInput);
-        
-        userInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                handleUserInput();
-            }
-        });
-        
+        userInput.addEventListener('keypress', e => e.key === 'Enter' && handleUserInput());
         clearChatBtn.addEventListener('click', clearChat);
-        
         searchInput.addEventListener('input', filterQuestions);
-        
         categoryTags.forEach(tag => {
             tag.addEventListener('click', () => {
                 categoryTags.forEach(t => t.classList.remove('active'));
@@ -861,13 +742,8 @@
                 filterQuestions();
             });
         });
-        
-        randomBtn.addEventListener('click', () => {
-            const fact = getRandomFact();
-            addMessage(`💡 Random fact: ${fact}`, false);
-        });
+        randomBtn.addEventListener('click', () => addMessage(`💡 Random fact: ${getRandomFact()}`, false));
 
-        // Initialize
         renderQuestions();
         renderWordSuggestions();
     </script>
