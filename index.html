@@ -3,29 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cesar's Recruiter Assistant</title>
+    <title>Cesar's Recruiter Assistant | Dark Glass</title>
     <style>
-        :root {
-            --primary: #4f46e5;
-            --primary-light: #818cf8;
-            --secondary: #ec4899;
-            --dark: #1f2937;
-            --light: #f3f4f6;
-            --white: #ffffff;
-            --gray: #9ca3af;
-            --success: #10b981;
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
-        
+
+        /* Dark-only mode */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+            --panel-bg: rgba(20, 20, 35, 0.94);
+            --chat-bg: rgba(15, 15, 25, 0.96);
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --border-light: rgba(51, 51, 85, 0.6);
+            --accent: #818cf8;
+            --accent-light: #a5b4fc;
+            --accent-gradient: linear-gradient(90deg, #4f46e5, #8b5cf6);
+            --user-msg-bg: linear-gradient(90deg, #4f46e5, #8b5cf6);
+            --bot-msg-bg: #2d2d44;
+            --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.4);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
         body {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: var(--dark);
+            background: var(--bg-gradient);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -33,352 +39,359 @@
             justify-content: center;
             padding: 20px;
         }
-        
-        .container {
-            width: 100%;
-            max-width: 1000px;
-            background: var(--white);
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            overflow: hidden;
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            margin: 20px 0;
-        }
-        
+
+        /* Header */
         .header {
             text-align: center;
             margin-bottom: 20px;
-            color: var(--white);
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
-        
         .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
         }
-        
         .header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
+            font-size: 1rem;
+            opacity: 0.85;
+            font-weight: 500;
         }
-        
+
+        /* Main container – dark glass */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            background: var(--panel-bg);
+            backdrop-filter: blur(12px);
+            border-radius: 32px;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            border: var(--glass-border);
+        }
+
+        /* Left panel */
         .left-panel {
-            background: linear-gradient(180deg, var(--white), #fbfbff);
-            padding: 20px;
-            border-right: 1px solid #eef2ff;
+            padding: 24px;
+            border-right: 1px solid var(--border-light);
             overflow-y: auto;
-            max-height: 600px;
+            max-height: 620px;
         }
-        
+
         .profile {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
+            gap: 14px;
+            margin-bottom: 24px;
         }
-        
         .avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            width: 56px;
+            height: 56px;
+            border-radius: 20px;
+            background: var(--accent-gradient);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: bold;
             font-size: 24px;
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.4);
         }
-        
         .profile-info h2 {
-            font-size: 18px;
-            margin-bottom: 4px;
+            font-size: 1.2rem;
+            color: var(--text-primary);
         }
-        
         .profile-info p {
-            font-size: 13px;
-            color: var(--gray);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
         }
-        
-        .search-box {
-            margin-bottom: 15px;
-        }
-        
-        .search-box input {
-            width: 100%;
-            padding: 10px 15px;
-            border-radius: 10px;
-            border: 1px solid #e6edf3;
-            background: #fbfdff;
-            font-size: 14px;
-        }
- 
+
         .recruiter-section {
-            background: #f0f9ff;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-left: 4px solid var(--primary);
+            background: rgba(129, 140, 248, 0.12);
+            border-radius: 20px;
+            padding: 16px;
+            margin-bottom: 20px;
+            border-left: 3px solid var(--accent);
         }
-        
         .recruiter-section h3 {
-            font-size: 14px;
-            margin-bottom: 10px;
-            color: var(--primary);
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            color: var(--accent);
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
         }
-        
         .suggestion-chip {
             display: inline-block;
-            padding: 6px 12px;
-            background: white;
-            border: 1px solid #e6e9ff;
-            border-radius: 16px;
-            font-size: 12px;
+            padding: 6px 14px;
+            background: rgba(30, 30, 50, 0.8);
+            backdrop-filter: blur(4px);
+            border: 1px solid var(--border-light);
+            border-radius: 40px;
+            font-size: 0.75rem;
             margin: 4px;
             cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--text-primary);
+        }
+        .suggestion-chip:hover {
+            background: var(--accent);
+            color: #0f0f23;
+            border-color: transparent;
+            transform: translateY(-2px);
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 28px;
+            border: 1px solid var(--border-light);
+            background: rgba(0, 0, 0, 0.3);
+            font-size: 0.85rem;
+            color: var(--text-primary);
             transition: all 0.2s;
         }
-        
-        .suggestion-chip:hover {
-            background: var(--primary);
-            color: white;
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(129, 140, 248, 0.3);
         }
-        
+
         .category-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 15px;
+            margin: 16px 0;
         }
-        
         .tag {
-            padding: 6px 12px;
-            border-radius: 20px;
-            background: var(--light);
-            font-size: 12px;
+            padding: 6px 14px;
+            border-radius: 40px;
+            background: rgba(255, 255, 255, 0.08);
+            font-size: 0.75rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s;
+            color: var(--text-secondary);
         }
-        
         .tag:hover, .tag.active {
-            background: var(--primary);
-            color: white;
+            background: var(--accent);
+            color: #0f0f23;
         }
-        
+
         .questions-list {
-            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 8px;
         }
-        
         .question-item {
             padding: 12px;
-            border-radius: 10px;
-            background: #fbfcff;
-            border: 1px solid #f1f5f9;
-            margin-bottom: 10px;
+            border-radius: 18px;
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid var(--border-light);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s;
         }
-        
         .question-item:hover {
-            box-shadow: 0 6px 14px rgba(79, 70, 229, 0.1);
-            transform: translateY(-2px);
+            transform: translateX(4px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-sm);
         }
-        
         .question-text {
             font-weight: 600;
-            font-size: 14px;
+            font-size: 0.85rem;
+            color: var(--text-primary);
             margin-bottom: 6px;
         }
-        
         .question-meta {
+            font-size: 0.65rem;
+            color: var(--text-secondary);
             display: flex;
             justify-content: space-between;
-            font-size: 12px;
-            color: var(--gray);
         }
-        
+
+        /* Right panel */
         .right-panel {
             display: flex;
             flex-direction: column;
-            height: 600px;
+            height: 620px;
         }
-        
         .chat-header {
-            padding: 18px;
-            border-bottom: 1px solid #eef2ff;
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--border-light);
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
         }
-        
         .chat-title {
-            font-weight: 600;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-primary);
         }
-        
         .chat-subtitle {
-            font-size: 12px;
-            color: var(--gray);
+            font-size: 0.7rem;
+            color: var(--text-secondary);
         }
-        
         .chat-actions {
             display: flex;
             gap: 8px;
         }
-        
         .action-btn {
-            padding: 6px 12px;
-            border-radius: 8px;
-            border: 1px solid #e6edf3;
-            background: white;
-            font-size: 12px;
+            padding: 6px 14px;
+            border-radius: 30px;
+            border: 1px solid var(--border-light);
+            background: rgba(0, 0, 0, 0.4);
+            font-size: 0.75rem;
             cursor: pointer;
+            transition: all 0.2s;
+            color: var(--text-primary);
         }
-        
+        .action-btn:hover {
+            background: var(--accent);
+            color: #0f0f23;
+            border-color: var(--accent);
+        }
+
         .chat-messages {
             flex: 1;
-            padding: 20px;
+            padding: 24px;
             overflow-y: auto;
-            background: linear-gradient(180deg, #f8fafc, #ffffff);
+            background: var(--chat-bg);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
-        
         .message {
-            max-width: 75%;
-            padding: 14px;
-            border-radius: 14px;
-            margin-bottom: 12px;
+            max-width: 80%;
+            padding: 12px 18px;
+            border-radius: 24px;
+            font-size: 0.9rem;
             line-height: 1.4;
-            font-size: 14px;
             position: relative;
+            animation: fadeIn 0.2s ease;
         }
-        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
         .message.bot {
-            background: var(--light);
-            border-bottom-left-radius: 4px;
+            background: var(--bot-msg-bg);
+            color: var(--text-primary);
+            border-bottom-left-radius: 6px;
+            align-self: flex-start;
         }
-        
         .message.user {
-            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            background: var(--user-msg-bg);
             color: white;
-            margin-left: auto;
-            border-bottom-right-radius: 4px;
+            border-bottom-right-radius: 6px;
+            align-self: flex-end;
         }
-        
         .message-meta {
-            font-size: 11px;
-            color: var(--gray);
-            margin-top: 8px;
+            font-size: 0.6rem;
+            margin-top: 6px;
+            opacity: 0.7;
             display: flex;
             justify-content: space-between;
         }
-        
+
         .word-suggestions {
-            padding: 10px 16px 0;
+            padding: 12px 20px;
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            border-top: 1px solid #eef2ff;
-            background: #f8fafc;
+            border-top: 1px solid var(--border-light);
+            background: var(--chat-bg);
         }
-        
         .word-suggestion {
-            padding: 6px 12px;
-            border-radius: 16px;
-            background: white;
-            border: 1px solid #e6e9ff;
-            font-size: 12px;
+            padding: 6px 14px;
+            border-radius: 40px;
+            background: rgba(30, 30, 50, 0.8);
+            border: 1px solid var(--border-light);
+            font-size: 0.75rem;
             cursor: pointer;
             transition: all 0.2s;
+            color: var(--text-primary);
         }
-        
         .word-suggestion:hover {
-            background: var(--primary);
-            color: white;
+            background: var(--accent);
+            color: #0f0f23;
         }
-        
+
         .chat-input-container {
-            padding: 16px;
-            border-top: 1px solid #eef2ff;
+            padding: 16px 20px;
+            border-top: 1px solid var(--border-light);
             display: flex;
-            gap: 10px;
-            align-items: center;
+            gap: 12px;
+            background: var(--chat-bg);
         }
-        
         .chat-input {
             flex: 1;
-            padding: 12px 16px;
-            border-radius: 12px;
-            border: 1px solid #e6edf3;
-            font-size: 14px;
+            padding: 12px 18px;
+            border-radius: 40px;
+            border: 1px solid var(--border-light);
+            background: rgba(0, 0, 0, 0.3);
+            font-size: 0.85rem;
+            color: var(--text-primary);
         }
-        
-        .send-btn {
-            background: var(--primary);
-            color: white;
-            padding: 10px 16px;
-            border-radius: 12px;
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+        .send-btn, .random-btn {
+            background: var(--accent-gradient);
             border: none;
+            border-radius: 40px;
+            padding: 0 20px;
+            font-weight: 600;
             cursor: pointer;
-            font-size: 14px;
+            transition: transform 0.2s, opacity 0.2s;
+            color: white;
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 6px;
         }
-        
         .random-btn {
-            background: var(--secondary);
-            color: white;
-            padding: 10px;
-            border-radius: 12px;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease;
+            background: #ec4899;
+            padding: 0 16px;
         }
-        
-        .random-btn:hover {
-            transform: rotate(15deg);
+        .send-btn:hover, .random-btn:hover {
+            transform: scale(1.02);
+            opacity: 0.9;
         }
-        
+
         .typing-animation {
             display: inline-flex;
+            gap: 4px;
         }
-        
         .typing-dot {
             width: 6px;
             height: 6px;
             border-radius: 50%;
-            background-color: var(--gray);
-            margin: 0 2px;
-            animation: typing 1s infinite ease-in-out;
+            background: var(--text-secondary);
+            animation: typing 1s infinite;
         }
-        
-        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
-        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
-        
         @keyframes typing {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+            50% { transform: translateY(-4px); }
         }
-        
+
         .footer {
-            text-align: center;
-            color: var(--white);
             margin-top: 20px;
-            font-size: 14px;
-            opacity: 0.8;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.75rem;
         }
-        
-        @media (max-width: 900px) {
+
+        @media (max-width: 780px) {
             .container {
                 grid-template-columns: 1fr;
             }
             .left-panel {
                 display: none;
+            }
+            .right-panel {
+                height: 560px;
             }
         }
     </style>
@@ -388,7 +401,7 @@
         <h1>Cesar's Recruiter Assistant</h1>
         <p>AI Operations & QA | Core Ops at a leading tech company | Prompt Engineering</p>
     </div>
-    
+
     <div class="container">
         <div class="left-panel">
             <div class="profile">
@@ -398,19 +411,15 @@
                     <p>AI Operations & QA Specialist</p>
                 </div>
             </div>
-            
             <div class="recruiter-section">
                 <h3>💡 Not sure where to start?</h3>
-                <p style="font-size: 12px; margin-bottom: 10px; color: var(--dark);">Try these questions:</p>
                 <div class="suggestion-chip" onclick="askSuggestion('Tell me about your current role')">Current Role</div>
                 <div class="suggestion-chip" onclick="askSuggestion('What AI projects have you built?')">AI Projects</div>
                 <div class="suggestion-chip" onclick="askSuggestion('How does your marketing background help with AI?')">Marketing + AI</div>
             </div>
-            
             <div class="search-box">
                 <input type="text" id="search-input" placeholder="Search questions...">
             </div>
-            
             <div class="category-tags">
                 <div class="tag active" data-category="all">All</div>
                 <div class="tag" data-category="experience">Experience</div>
@@ -418,10 +427,9 @@
                 <div class="tag" data-category="projects">Projects</div>
                 <div class="tag" data-category="education">Education</div>
             </div>
-            
             <div class="questions-list" id="questions-list"></div>
         </div>
-        
+
         <div class="right-panel">
             <div class="chat-header">
                 <div>
@@ -429,44 +437,27 @@
                     <div class="chat-subtitle">Ask me about experience, skills, projects</div>
                 </div>
                 <div class="chat-actions">
-                    <button class="action-btn" id="clear-chat">Clear Chat</button>
+                    <button class="action-btn" id="clear-chat">Clear</button>
                 </div>
             </div>
-            
             <div class="chat-messages" id="chat-messages">
                 <div class="message bot">
                     <div>Hello! I'm Cesar's AI assistant. Ask me about his current work in core operations at a major tech company, his AI training background, technical skills, or any of his projects like NEO AI, PATCH AI, Cold2Close, SwiftSite, and more!</div>
-                    <div class="message-meta">
-                        <span>Assistant</span>
-                        <span>Just now</span>
-                    </div>
+                    <div class="message-meta"><span>Assistant</span><span>Just now</span></div>
                 </div>
             </div>
-            
             <div class="word-suggestions" id="word-suggestions"></div>
-            
             <div class="chat-input-container">
                 <input type="text" id="user-input" placeholder="Ask a question..." class="chat-input">
-                <button class="random-btn" id="random-btn" title="Random Fact">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                        <path d="M16 8h.01"></path>
-                        <path d="M8 8h.01"></path>
-                        <path d="M8 16h.01"></path>
-                        <path d="M16 16h.01"></path>
-                    </svg>
-                </button>
+                <button class="random-btn" id="random-btn" title="Random Fact">🎲</button>
                 <button class="send-btn" id="send-btn">Send</button>
             </div>
         </div>
     </div>
-    
-    <div class="footer">
-        <p>Updated 2026 – Interactive portfolio chatbot. Now low‑key about current employer, focusing on skills and projects.</p>
-    </div>
+    <div class="footer">Updated 2026 – Dark glass design | Interactive portfolio chatbot</div>
 
     <script>
-        // Keyword categories – no explicit "meta" or "facebook"
+        // ======================== DATA (low-key, no Meta name, no "(keeping it low‑key)") ========================
         const keywordCategories = {
             experience: ["current role", "core ops", "large tech company", "leading tech firm", "outlier", "swiftsite", "properties", "refica", "experience", "work", "job", "role", "position", "career", "background", "professional", "quality assurance", "reviewer", "contributor", "training", "evaluation"],
             skills: ["python", "sql", "javascript", "html", "css", "gsap", "canvas", "ollama", "claude", "deepseek", "wolfram", "batch", "json", "latex", "tableau", "airtable", "airflow", "zapier", "github", "huggingface", "vercel", "prompt engineering", "rubric development", "ai evaluation", "llm", "fine-tuning", "mece"],
@@ -475,80 +466,20 @@
         };
 
         const questions = [
-            {
-                id: 1,
-                text: "What is your current role?",
-                category: "experience",
-                answer: "Since early 2026, I've been working in core operations and production support at a leading global technology company. I apply my AI training and QA background to help optimize operational workflows and maintain high performance standards across production systems. I prefer to keep the company name low‑key, but it's a well‑known tech firm.",
-                keywords: ["current", "role", "now", "recent", "job", "position", "work"]
-            },
-            {
-                id: 2,
-                text: "Walk me through your professional background.",
-                category: "experience",
-                answer: "I started as an AI Training & QA Specialist at Outlier AI, where I progressed from contributor to trusted reviewer across 7+ projects. In early 2026, I moved into a core operations role at a major tech company (keeping it low‑key). I also co‑founded SwiftSite (a web agency), have experience in property management and marketing consulting, and built over a dozen personal projects including AI consoles, games, and e‑commerce sites. My path blends marketing, AI, and operations.",
-                keywords: ["background", "career", "history", "overview", "professional", "summary"]
-            },
-            {
-                id: 3,
-                text: "What did you do at Outlier AI?",
-                category: "experience",
-                answer: "At Outlier AI, I served as an AI Training & Quality Assurance Specialist. I designed complex prompts and multi‑dimensional rubrics to test AI model performance on hierarchical instructions, mathematical reasoning, and natural conversation. I maintained a 4.2/5 average across 135+ peer‑reviewed tasks, developed evaluation methods that became project standards, and led QA for teams ranging from 275 to 20,500 contributors. I worked on both text and audio AI training.",
-                keywords: ["outlier", "ai training", "quality assurance", "reviewer", "rubric", "prompt engineering", "evaluation"]
-            },
-            {
-                id: 4,
-                text: "What are your technical skills?",
-                category: "skills",
-                answer: "I'm proficient in: AI/LLM (Prompt Engineering, Model Evaluation, Rubric Development, Fine‑Tuning, MECE principles); Programming (Python, SQL, Windows Batch, JSON, LaTeX); Web Development (HTML5/CSS3/JavaScript, GSAP, Canvas API); AI Tools (Ollama, Claude, Deepseek, Wolfram Alpha); Platforms (GitHub, Huggingface, Vercel, Snowflake, Airtable, Airflow, Zapier); and Data (Tableau, Airtable). I'm also bilingual (English/Spanish) with working Italian.",
-                keywords: ["technical skills", "python", "sql", "javascript", "llm", "prompt engineering", "web dev", "gsap", "canvas", "ollama", "claude", "deepseek", "tools", "languages"]
-            },
-            {
-                id: 5,
-                text: "What AI projects have you built?",
-                category: "projects",
-                answer: "I've built several AI projects: <strong>NEO AI</strong> – a dual‑brain AI console with persistent memory and context‑aware routing (Ollama + Deepseek). <strong>PATCH AI</strong> – a lightweight offline AI companion (TinyLlama). <strong>Cold2Close</strong> – an AI‑powered cold calling B2B service. <strong>Resume Assistant Chatbot</strong> – the interactive bot you're using now. All are live on Vercel and GitHub.",
-                keywords: ["ai projects", "neo", "patch", "cold2close", "chatbot", "ai console", "built", "created", "developed"]
-            },
-            {
-                id: 6,
-                text: "What ventures and business projects do you have?",
-                category: "projects",
-                answer: "I founded <strong>SwiftSite</strong> – a web development agency in Houston (8+ projects, 99% satisfaction). I also built sites for real businesses: <strong>Nati Nails</strong> (mobile salon booking), <strong>Artisan Gems</strong> (jewelry e‑commerce with Python calculator), and <strong>Black Widow Inks</strong> (tattoo portfolio). All are live and showcase my full‑stack abilities.",
-                keywords: ["ventures", "business", "swiftsite", "nati nails", "artisan gems", "black widow inks", "agency", "startup", "e-commerce"]
-            },
-            {
-                id: 7,
-                text: "Do you have any game development projects?",
-                category: "projects",
-                answer: "Yes! I've built <strong>The Little Hiker</strong> (Tamagotchi‑style adventure), <strong>The Little Astronaut</strong> (space exploration), and <strong>Touch Grass</strong> (outdoor interactive experience). They use HTML5 Canvas, custom physics, and procedural animation – great examples of my front‑end creativity.",
-                keywords: ["games", "game dev", "the little hiker", "the little astronaut", "touch grass", "canvas", "html5 game"]
-            },
-            {
-                id: 8,
-                text: "What is your educational background?",
-                category: "education",
-                answer: "I hold a BBA in Marketing from Sam Houston State University (graduated Aug 2024). I've also earned certifications: <strong>Python for Data Science, AI & Development</strong> (IBM), and multiple AI certifications from the University of Pennsylvania (AI Strategy, Governance, AI in Marketing & Finance).",
-                keywords: ["education", "degree", "shsu", "sam houston", "bba", "marketing", "certification", "ibm", "pennsylvania"]
-            },
-            {
-                id: 9,
-                text: "How does your marketing background help with AI?",
-                category: "experience",
-                answer: "Marketing gave me a user‑centered, outcome‑driven mindset. I translate business needs into technical requirements, design AI evaluations that matter for real users, and communicate complex AI concepts to non‑technical stakeholders. It makes me a hybrid: technically capable yet business‑aware.",
-                keywords: ["marketing", "business", "hybrid", "translate", "communication", "stakeholders"]
-            },
-            {
-                id: 10,
-                text: "What are your key achievements?",
-                category: "experience",
-                answer: "Achievements include: 4.2/5 avg rating across 135+ AI training tasks; selected for premium projects; formal commendation; evaluation methods adopted as project standards; increased B2C lead generation by 8% via marketing; launched SwiftSite; built 10+ live projects; and now working in core operations at a top tech company – a clear growth trajectory.",
-                keywords: ["achievements", "accomplishments", "results", "impact", "rating", "commendation", "lead generation"]
-            }
+            { id:1, text:"What is your current role?", category:"experience", answer:"Since early 2026, I've been working in core operations and production support at a leading global technology company. I apply my AI training and QA background to help optimize operational workflows and maintain high performance standards across production systems.", keywords:["current","role","now","recent","job","position","work"] },
+            { id:2, text:"Walk me through your professional background.", category:"experience", answer:"I started as an AI Training & QA Specialist at Outlier AI, where I progressed from contributor to trusted reviewer across 7+ projects. In early 2026, I moved into a core operations role at a major tech company. I also co‑founded SwiftSite (a web agency), have experience in property management and marketing consulting, and built over a dozen personal projects including AI consoles, games, and e‑commerce sites. My path blends marketing, AI, and operations.", keywords:["background","career","history","overview","professional","summary"] },
+            { id:3, text:"What did you do at Outlier AI?", category:"experience", answer:"At Outlier AI, I served as an AI Training & Quality Assurance Specialist. I designed complex prompts and multi‑dimensional rubrics to test AI model performance on hierarchical instructions, mathematical reasoning, and natural conversation. I maintained a 4.2/5 average across 135+ peer‑reviewed tasks, developed evaluation methods that became project standards, and led QA for teams ranging from 275 to 20,500 contributors. I worked on both text and audio AI training.", keywords:["outlier","ai training","quality assurance","reviewer","rubric","prompt engineering","evaluation"] },
+            { id:4, text:"What are your technical skills?", category:"skills", answer:"I'm proficient in: AI/LLM (Prompt Engineering, Model Evaluation, Rubric Development, Fine‑Tuning, MECE principles); Programming (Python, SQL, Windows Batch, JSON, LaTeX); Web Development (HTML5/CSS3/JavaScript, GSAP, Canvas API); AI Tools (Ollama, Claude, Deepseek, Wolfram Alpha); Platforms (GitHub, Huggingface, Vercel, Snowflake, Airtable, Airflow, Zapier); and Data (Tableau, Airtable). I'm also bilingual (English/Spanish) with working Italian.", keywords:["technical skills","python","sql","javascript","llm","prompt engineering","web dev","gsap","canvas","ollama","claude","deepseek","tools","languages"] },
+            { id:5, text:"What AI projects have you built?", category:"projects", answer:"I've built several AI projects: <strong>NEO AI</strong> – a dual‑brain AI console with persistent memory and context‑aware routing (Ollama + Deepseek). <strong>PATCH AI</strong> – a lightweight offline AI companion (TinyLlama). <strong>Cold2Close</strong> – an AI‑powered cold calling B2B service. <strong>Resume Assistant Chatbot</strong> – the interactive bot you're using now. All are live on Vercel and GitHub.", keywords:["ai projects","neo","patch","cold2close","chatbot","ai console","built","created","developed"] },
+            { id:6, text:"What ventures and business projects do you have?", category:"projects", answer:"I founded <strong>SwiftSite</strong> – a web development agency in Houston (8+ projects, 99% satisfaction). I also built sites for real businesses: <strong>Nati Nails</strong> (mobile salon booking), <strong>Artisan Gems</strong> (jewelry e‑commerce with Python calculator), and <strong>Black Widow Inks</strong> (tattoo portfolio). All are live and showcase my full‑stack abilities.", keywords:["ventures","business","swiftsite","nati nails","artisan gems","black widow inks","agency","startup","e-commerce"] },
+            { id:7, text:"Do you have any game development projects?", category:"projects", answer:"Yes! I've built <strong>The Little Hiker</strong> (Tamagotchi‑style adventure), <strong>The Little Astronaut</strong> (space exploration), and <strong>Touch Grass</strong> (outdoor interactive experience). They use HTML5 Canvas, custom physics, and procedural animation – great examples of my front‑end creativity.", keywords:["games","game dev","the little hiker","the little astronaut","touch grass","canvas","html5 game"] },
+            { id:8, text:"What is your educational background?", category:"education", answer:"I hold a BBA in Marketing from Sam Houston State University (graduated Aug 2024). I've also earned certifications: <strong>Python for Data Science, AI & Development</strong> (IBM), and multiple AI certifications from the University of Pennsylvania (AI Strategy, Governance, AI in Marketing & Finance).", keywords:["education","degree","shsu","sam houston","bba","marketing","certification","ibm","pennsylvania"] },
+            { id:9, text:"How does your marketing background help with AI?", category:"experience", answer:"Marketing gave me a user‑centered, outcome‑driven mindset. I translate business needs into technical requirements, design AI evaluations that matter for real users, and communicate complex AI concepts to non‑technical stakeholders. It makes me a hybrid: technically capable yet business‑aware.", keywords:["marketing","business","hybrid","translate","communication","stakeholders"] },
+            { id:10, text:"What are your key achievements?", category:"experience", answer:"Achievements include: 4.2/5 avg rating across 135+ AI training tasks; selected for premium projects; formal commendation; evaluation methods adopted as project standards; increased B2C lead generation by 8% via marketing; launched SwiftSite; built 10+ live projects; and now working in core operations at a top tech company – a clear growth trajectory.", keywords:["achievements","accomplishments","results","impact","rating","commendation","lead generation"] }
         ];
 
         const randomFacts = [
-            "Cesar currently works in core operations at a leading tech company (keeping it low‑key).",
+            "Cesar currently works in core operations at a leading tech company.",
             "He built NEO AI – a dual‑brain AI console with persistent memory and context routing.",
             "His AI evaluation methods at Outlier became project standards.",
             "He maintains a 4.2/5 average across 135+ AI training tasks.",
@@ -571,49 +502,41 @@
         const wordSuggestions = document.getElementById('word-suggestions');
         const randomBtn = document.getElementById('random-btn');
 
-        function renderQuestions(filteredQuestions = questions) {
+        // Render functions
+        function renderQuestions(filtered = questions) {
             questionsList.innerHTML = '';
-            filteredQuestions.forEach(q => {
-                const questionItem = document.createElement('div');
-                questionItem.className = 'question-item';
-                questionItem.innerHTML = `
-                    <div class="question-text">${q.text}</div>
-                    <div class="question-meta">
-                        <span>${q.category.toUpperCase()}</span>
-                        <span>Click to ask</span>
-                    </div>
-                `;
-                questionItem.addEventListener('click', () => askQuestion(q));
-                questionsList.appendChild(questionItem);
+            filtered.forEach(q => {
+                const div = document.createElement('div');
+                div.className = 'question-item';
+                div.innerHTML = `<div class="question-text">${q.text}</div><div class="question-meta"><span>${q.category.toUpperCase()}</span><span>Click to ask</span></div>`;
+                div.onclick = () => askQuestion(q);
+                questionsList.appendChild(div);
             });
         }
 
         function renderWordSuggestions() {
-            const suggestionWords = [
-                "Current Role", "Outlier AI", "NEO AI", "PATCH AI", "Cold2Close",
-                "Python Skills", "Game Dev", "SwiftSite", "Education", "Marketing + AI"
-            ];
+            const words = ["Current Role", "Outlier AI", "NEO AI", "PATCH AI", "Cold2Close", "Python Skills", "Game Dev", "SwiftSite", "Education", "Marketing + AI"];
             wordSuggestions.innerHTML = '';
-            suggestionWords.forEach(word => {
-                const wordElement = document.createElement('div');
-                wordElement.className = 'word-suggestion';
-                wordElement.textContent = word;
-                wordElement.addEventListener('click', () => askAboutWord(word));
-                wordSuggestions.appendChild(wordElement);
+            words.forEach(w => {
+                const chip = document.createElement('div');
+                chip.className = 'word-suggestion';
+                chip.textContent = w;
+                chip.onclick = () => askAboutWord(w);
+                wordSuggestions.appendChild(chip);
             });
         }
 
         function addMessage(text, isUser = false) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `message ${isUser ? 'user' : 'bot'}`;
             const now = new Date();
-            const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            messageDiv.innerHTML = `<div>${text}</div><div class="message-meta"><span>${isUser ? 'You' : 'Assistant'}</span><span>${timeString}</span></div>`;
-            chatMessages.appendChild(messageDiv);
+            const time = now.toLocaleTimeString([], { hour:'2-digit', minute:'2-digit' });
+            msgDiv.innerHTML = `<div>${text}</div><div class="message-meta"><span>${isUser ? 'You' : 'Assistant'}</span><span>${time}</span></div>`;
+            chatMessages.appendChild(msgDiv);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
-        function showTypingIndicator() {
+        function showTyping() {
             const typingDiv = document.createElement('div');
             typingDiv.className = 'message bot';
             typingDiv.id = 'typing-indicator';
@@ -623,29 +546,29 @@
             return typingDiv;
         }
 
-        function removeTypingIndicator() {
-            const indicator = document.getElementById('typing-indicator');
-            if (indicator) indicator.remove();
+        function removeTyping() {
+            const el = document.getElementById('typing-indicator');
+            if (el) el.remove();
         }
 
-        function askQuestion(question) {
-            addMessage(question.text, true);
-            const typing = showTypingIndicator();
+        function askQuestion(q) {
+            addMessage(q.text, true);
+            const typing = showTyping();
             setTimeout(() => {
-                removeTypingIndicator();
-                addMessage(question.answer);
-            }, 800);
+                removeTyping();
+                addMessage(q.answer);
+            }, 700);
         }
 
         function askAboutWord(word) {
-            const questionText = `Tell me about ${word.toLowerCase()}`;
-            addMessage(questionText, true);
-            const typing = showTypingIndicator();
+            const query = `Tell me about ${word.toLowerCase()}`;
+            addMessage(query, true);
+            const typing = showTyping();
             setTimeout(() => {
-                removeTypingIndicator();
-                const match = findBestMatch(questionText);
+                removeTyping();
+                const match = findBestMatch(query);
                 addMessage(match.answer);
-            }, 800);
+            }, 700);
         }
 
         function askSuggestion(text) {
@@ -654,48 +577,30 @@
         }
 
         function findBestMatch(input) {
-            const lowerInput = input.toLowerCase();
-            let bestMatch = null;
-            let highestScore = 0;
+            const lower = input.toLowerCase();
+            let best = null, bestScore = 0;
             questions.forEach(q => {
                 let score = 0;
-                if (q.keywords) {
-                    q.keywords.forEach(kw => {
-                        if (lowerInput.includes(kw)) score += 2;
-                    });
+                if (q.keywords) q.keywords.forEach(kw => { if (lower.includes(kw)) score += 2; });
+                if (lower.includes(q.text.toLowerCase().slice(0, 15))) score += 5;
+                for (let [cat, kwList] of Object.entries(keywordCategories)) {
+                    if (q.category === cat) kwList.forEach(kw => { if (lower.includes(kw)) score += 1; });
                 }
-                if (lowerInput.includes(q.text.toLowerCase().slice(0, 15))) score += 5;
-                for (const [cat, kwList] of Object.entries(keywordCategories)) {
-                    if (q.category === cat) {
-                        kwList.forEach(kw => {
-                            if (lowerInput.includes(kw)) score += 1;
-                        });
-                    }
-                }
-                if (score > highestScore) {
-                    highestScore = score;
-                    bestMatch = q;
-                }
+                if (score > bestScore) { bestScore = score; best = q; }
             });
-            if (highestScore >= 2) return bestMatch;
+            if (bestScore >= 2) return best;
             let detectedCat = null;
-            for (const [cat, kwList] of Object.entries(keywordCategories)) {
-                if (kwList.some(kw => lowerInput.includes(kw))) detectedCat = cat;
+            for (let [cat, kwList] of Object.entries(keywordCategories)) {
+                if (kwList.some(kw => lower.includes(kw))) detectedCat = cat;
             }
-            if (detectedCat) {
-                const generic = {
-                    experience: "My experience spans core operations at a major tech company (low‑key), prior AI training at Outlier, SwiftSite, and marketing. Want details on any specific role?",
-                    skills: "My technical skills include Python, SQL, AI evaluation, prompt engineering, web dev (GSAP/Canvas), and tools like Ollama, Claude, and Airtable.",
-                    projects: "I have many projects: NEO AI, PATCH AI, Cold2Close, SwiftSite, games (Little Hiker, Touch Grass), and e‑commerce sites.",
-                    education: "I hold a BBA in Marketing from SHSU and AI certifications from IBM and UPenn."
-                };
-                return { answer: generic[detectedCat] || "I can tell you about my current role (low‑key), AI projects, skills, or education. What would you like?" };
-            }
+            const generic = {
+                experience: "My experience spans core operations at a major tech company, prior AI training at Outlier, SwiftSite, and marketing. Want details on any specific role?",
+                skills: "My technical skills include Python, SQL, AI evaluation, prompt engineering, web dev (GSAP/Canvas), and tools like Ollama, Claude, and Airtable.",
+                projects: "I have many projects: NEO AI, PATCH AI, Cold2Close, SwiftSite, games (Little Hiker, Touch Grass), and e‑commerce sites.",
+                education: "I hold a BBA in Marketing from SHSU and AI certifications from IBM and UPenn."
+            };
+            if (detectedCat) return { answer: generic[detectedCat] };
             return { answer: "I'm not sure. Try asking about my current role, AI projects like NEO, or my technical skills." };
-        }
-
-        function getRandomFact() {
-            return randomFacts[Math.floor(Math.random() * randomFacts.length)];
         }
 
         function handleUserInput() {
@@ -703,32 +608,26 @@
             if (!text) return;
             addMessage(text, true);
             userInput.value = '';
-            const typing = showTypingIndicator();
+            const typing = showTyping();
             setTimeout(() => {
-                removeTypingIndicator();
+                removeTyping();
                 const match = findBestMatch(text);
                 addMessage(match.answer);
-            }, 800);
+            }, 700);
         }
 
         function filterQuestions() {
-            const searchText = searchInput.value.toLowerCase();
-            const activeCategory = document.querySelector('.tag.active').dataset.category;
+            const search = searchInput.value.toLowerCase();
+            const activeCat = document.querySelector('.tag.active').dataset.category;
             let filtered = questions;
-            if (activeCategory !== 'all') filtered = filtered.filter(q => q.category === activeCategory);
-            if (searchText) {
-                filtered = filtered.filter(q => 
-                    q.text.toLowerCase().includes(searchText) ||
-                    q.answer.toLowerCase().includes(searchText) ||
-                    (q.keywords && q.keywords.some(k => k.includes(searchText)))
-                );
-            }
+            if (activeCat !== 'all') filtered = filtered.filter(q => q.category === activeCat);
+            if (search) filtered = filtered.filter(q => q.text.toLowerCase().includes(search) || q.answer.toLowerCase().includes(search) || (q.keywords && q.keywords.some(k => k.includes(search))));
             renderQuestions(filtered);
         }
 
         function clearChat() {
             chatMessages.innerHTML = '';
-            addMessage("Hello! I'm Cesar's assistant (2026). Ask about my current role (low‑key), AI projects, skills, education, or any venture – I'm ready!");
+            addMessage("Hello! I'm Cesar's assistant (2026). Ask about my current role, AI projects, skills, education, or any venture – I'm ready!");
         }
 
         sendBtn.addEventListener('click', handleUserInput);
@@ -742,7 +641,10 @@
                 filterQuestions();
             });
         });
-        randomBtn.addEventListener('click', () => addMessage(`💡 Random fact: ${getRandomFact()}`, false));
+        randomBtn.addEventListener('click', () => {
+            const fact = randomFacts[Math.floor(Math.random() * randomFacts.length)];
+            addMessage(`💡 Random fact: ${fact}`, false);
+        });
 
         renderQuestions();
         renderWordSuggestions();
